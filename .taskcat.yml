@@ -2,6 +2,8 @@ project:
   name: quickstart-cribl-stream-privatelink-ami
   owner: quickstart-eng@amazon.com
   package_lambda: false
+  regions:
+    - us-east-1
   parameters: 
       QSS3BucketRegion: $[taskcat_current_region]
       QSS3BucketName: $[taskcat_autobucket]
@@ -11,7 +13,7 @@ tests:
       AvailabilityZones: $[taskcat_getaz_2]
     template: templates/free_arm64_template_main.yaml
     regions:
-      - us-west-1
+      - us-east-1
   # cribl-deploy-new-vpc-arm:
   #   parameters: 
   #     AvailabilityZones: $[taskcat_getaz_2]
