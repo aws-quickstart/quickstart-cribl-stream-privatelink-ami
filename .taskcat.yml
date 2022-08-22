@@ -8,10 +8,10 @@ project:
       QSS3BucketRegion: $[taskcat_current_region]
       QSS3BucketName: $[taskcat_autobucket]
 tests:
-  cribl-deploy-new-vpc-arm:
+  cribl-deploy-new-vpc-arm-main:
     parameters: 
       AvailabilityZones: $[taskcat_getaz_2]
-    template: templates/free_arm64_template_main.yaml
+    template: templates/free_arm64_main.template.yaml
     regions:
       - us-east-1
   # cribl-deploy-new-vpc-arm:
@@ -24,9 +24,9 @@ tests:
   #     PrivateSubnet2CIDR: 10.0.32.0/19
   #     VPCTenancy: default
   #     QSS3BucketRegion: $[taskcat_current_region]
-  #   template: templates/free_arm64_template.yaml
+  #   template: templates/free_arm64.template.yaml
   #   regions:
-  #     - us-west-1
+  #     - us-east-1
   # cribl-deploy-new-vpc-logging-arm:
   #   parameters: 
   #     AvailabilityZones: $[taskcat_getaz_2]
@@ -40,9 +40,15 @@ tests:
   #     LogFilePrefix: cribl-vpc-logs
   #     TrafficType: ALL
   #     SQS: cribl-sqs-vpc-logs-arm
-  #   template: templates/free_arm64_template.yaml
+  #   template: templates/free_arm64.template.yaml
   #   regions:
-  #     - us-west-2
+  #     - us-east-1
+  cribl-deploy-new-vpc-x86-main:
+    parameters: 
+      AvailabilityZones: $[taskcat_getaz_2]
+    template: templates/free_x86_64_main.template.yaml
+    regions:
+      - us-east-1
   # cribl-deploy-new-vpc-x86:
   #   parameters: 
   #     AvailabilityZones: $[taskcat_getaz_2]
@@ -53,7 +59,7 @@ tests:
   #     PrivateSubnet2CIDR: 10.0.32.0/19
   #     VPCTenancy: default
   #     QSS3BucketRegion: $[taskcat_current_region]
-  #   template: templates/free_x86_64_template.yaml
+  #   template: templates/free_x86_64.template.yaml
   #   regions:
   #     - us-east-1
   # cribl-deploy-new-vpc-logging-x86:
@@ -69,6 +75,6 @@ tests:
   #     LogFilePrefix: cribl-vpc-logs
   #     TrafficType: ALL
   #     SQS: cribl-sqs-vpc-logs-x86
-  #   template: templates/free_x86_64_template.yaml
+  #   template: templates/free_x86_64.template.yaml
   #   regions:
-  #     - us-east-2
+  #     - us-east-1

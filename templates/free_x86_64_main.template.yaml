@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Transform: "AWS::Serverless-2016-10-31"
-Description: Cribl LogStream Free Distributed Deployment (arm64)
+Description: Cribl LogStream Free Distributed Deployment (x86_64)
 
 Metadata:
   AWS::CloudFormation::Interface:
@@ -151,53 +151,55 @@ Parameters:
     Description: "REQUIRED: The CIDR IP range permitted to access the LogStream web console. We recommend you set this value to a trusted IP range."
     Default: 10.0.144.0/20
   leaderInstanceType:
-    Description: EC2 instance type to provision the LogStream leader instance. If none specified, c6g.2xlarge will be used.
+    Description: EC2 instance type to provision the LogStream leader instance. If none specified, c5.2xlarge will be used.
     Type: String
-    Default: c6g.2xlarge
+    Default: c5.2xlarge
     AllowedValues:
-      - c6g.large
-      - c6g.xlarge
-      - c6g.2xlarge
-      - c6g.4xlarge
-      - c6gd.large
-      - c6gd.xlarge
-      - c6gd.2xlarge
-      - c6gd.4xlarge
-      - m6g.large
-      - m6g.xlarge
-      - m6g.2xlarge
-      - m6g.4xlarge
-      - m6gd.large
-      - m6gd.xlarge
-      - m6gd.2xlarge
-      - m6gd.4xlarge
+      - c5.large
+      - c5.xlarge
+      - c5.2xlarge
+      - c5.4xlarge
+      - c5d.large
+      - c5d.xlarge
+      - c5d.2xlarge
+      - c5d.4xlarge
+      - c5a.large
+      - c5a.xlarge
+      - c5a.2xlarge
+      - c5a.4xlarge
+      - c5ad.large
+      - c5ad.xlarge
+      - c5ad.2xlarge
+      - c5ad.4xlarge
+      
     ConstraintDescription: Must contain valid instance type
   workerInstanceType:
-    Description: EC2 instance type to provision the LogStream worker instance. If none specified, c6g.2xlarge will be used.
+    Description: EC2 instance type to provision the LogStream worker instance. If none specified, c5.2xlarge will be used.
     Type: String
-    Default: c6g.2xlarge
+    Default: c5.2xlarge
     AllowedValues:
-      - c6g.large
-      - c6g.xlarge
-      - c6g.2xlarge
-      - c6g.4xlarge
-      - c6gd.large
-      - c6gd.xlarge
-      - c6gd.2xlarge
-      - c6gd.4xlarge
-      - m6g.large
-      - m6g.xlarge
-      - m6g.2xlarge
-      - m6g.4xlarge
-      - m6gd.large
-      - m6gd.xlarge
-      - m6gd.2xlarge
-      - m6gd.4xlarge
+      - c5.large
+      - c5.xlarge
+      - c5.2xlarge
+      - c5.4xlarge
+      - c5d.large
+      - c5d.xlarge
+      - c5d.2xlarge
+      - c5d.4xlarge
+      - c5a.large
+      - c5a.xlarge
+      - c5a.2xlarge
+      - c5a.4xlarge
+      - c5ad.large
+      - c5ad.xlarge
+      - c5ad.2xlarge
+      - c5ad.4xlarge
+      
     ConstraintDescription: Must contain valid instance type
   AdditionalPolicies:
     Default: "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore,arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy"
     Description: A comma separated list of Policy ARNs to add to the IAM role used by Logstream instances. Append to defaults, DO NOT REMOVE!
-    Type: CommaDelimitedList
+    Type: CommaDelimitedList 
 
 Rules:
   SubnetsInVPC:
@@ -243,7 +245,7 @@ Resources:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
       TemplateURL: !Sub
-        - https://${S3Bucket}.s3.${S3Region}.${AWS::URLSuffix}/${QSS3KeyPrefix}templates/free_arm64_template.yaml
+        - https://${S3Bucket}.s3.${S3Region}.${AWS::URLSuffix}/${QSS3KeyPrefix}templates/free_x86_64.template.yaml
         - S3Bucket: !If
             - UsingDefaultBucket
             - !Sub 'aws-quickstart-${AWS::Region}'

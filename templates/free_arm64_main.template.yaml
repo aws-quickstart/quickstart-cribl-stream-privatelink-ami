@@ -1,10 +1,19 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Transform: "AWS::Serverless-2016-10-31"
-Description: Cribl LogStream Free Distributed Deployment (x86_64)
+Description: Cribl LogStream Free Distributed Deployment (arm64)
 
-ParameterGroups:
+Metadata:
+  AWS::CloudFormation::Interface:
+    ParameterGroups:
       - Label:
-          default: Network configuration
+          default: Cribl Configuration
+        Parameters:
+          - workerCount
+          - webAccessCidr
+          - leaderInstanceType
+          - workerInstanceType
+      - Label:
+          default: Network Configuration
         Parameters:
           - AvailabilityZones
           - VPCCIDR
@@ -14,22 +23,17 @@ ParameterGroups:
           - PublicSubnet2CIDR
           - VPCTenancy
       - Label:
+          default: Advanced Settings
+        Parameters:
+          - AdditionalPolicies
+      - Label:
           default: AWS Quick Start configuration
         Parameters:
           - QSS3BucketName
           - QSS3KeyPrefix
           - QSS3BucketRegion
-      - Label:
-          default: Cribl Configuration
-        Parameters:
-          - workerCount
-          - webAccessCidr
-          - leaderInstanceType
-          - workerInstanceType
-          - AdditionalPolicies
-
-ParameterLabels:
-  AvailabilityZones:
+    ParameterLabels:
+      AvailabilityZones:
         default: Availability Zones
       PublicSubnet1CIDR:
         default: Public subnet 1 CIDR
@@ -43,8 +47,6 @@ ParameterLabels:
         default: VPC tenancy
       VPCCIDR:
         default: VPC CIDR
-      instanceType:
-        default: EC2 Instance Type
       QSS3BucketName:
         default: Quick Start S3 bucket name
       QSS3KeyPrefix:
@@ -98,6 +100,12 @@ Parameters:
     Default: default
     Description: The allowed tenancy of instances launched into the VPC.
     Type: String
+  VPCCIDR:
+    AllowedPattern: ^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\/(1[6-9]|2[0-8]))$
+    ConstraintDescription: CIDR block parameter must be in the form x.x.x.x/16-28
+    Default: 10.0.0.0/16
+    Description: CIDR Block for the VPC.
+    Type: String
   QSS3BucketName:
     AllowedPattern: ^[0-9a-zA-Z]+([0-9a-zA-Z-]*[0-9a-zA-Z])*$
     ConstraintDescription: The Quick Start bucket name can include numbers, lowercase
@@ -115,7 +123,7 @@ Parameters:
     AllowedPattern: ^([0-9a-zA-Z-.]+/)*$
     ConstraintDescription: The Quick Start S3 key prefix can include numbers, lowercase letters,
       uppercase letters, hyphens (-), and forward slashes (/).
-    Default: quickstart-linux-bastion/
+    Default: quickstart-cribl-stream-privatelink-ami/
     Description: S3 key prefix that is used to simulate a directory for your copy of the
       Quick Start assets. Keep the default prefix unless you are customizing
       the template. Changing this prefix updates code references to point to
@@ -132,130 +140,64 @@ Parameters:
     When using your own bucket, specify the Region.
     See https://aws-quickstart.github.io/option1.html.'
     Type: String
-  VPCCIDR:
-    AllowedPattern: ^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\/(1[6-9]|2[0-8]))$
-    ConstraintDescription: CIDR block parameter must be in the form x.x.x.x/16-28
-    Default: 10.0.0.0/16
-    Description: CIDR Block for the VPC.
-    Type: String
   workerCount:
     Description: "REQUIRED: Enter the number of worker nodes desired"
     Type: String
-    Default: 2
+    Default: '2'
   webAccessCidr:
     Type: String
     AllowedPattern: ^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\/([0-9]|[1-2][0-9]|3[0-2]))$
     ConstraintDescription: CIDR block parameter must be in the form x.x.x.x/x
     Description: "REQUIRED: The CIDR IP range permitted to access the LogStream web console. We recommend you set this value to a trusted IP range."
-    Default: 10.0.144.128
+    Default: 10.0.144.0/20
   leaderInstanceType:
-    Description: EC2 instance type to provision the LogStream leader instance. If none specified, c5.2xlarge will be used.
+    Description: EC2 instance type to provision the LogStream leader instance. If none specified, c6g.2xlarge will be used.
     Type: String
-    Default: c5.2xlarge
+    Default: c6g.2xlarge
     AllowedValues:
-      - c5.large
-      - c5.xlarge
-      - c5.2xlarge
-      - c5.4xlarge
-      - c5d.large
-      - c5d.xlarge
-      - c5d.2xlarge
-      - c5d.4xlarge
-      - c5a.large
-      - c5a.xlarge
-      - c5a.2xlarge
-      - c5a.4xlarge
-      - c5ad.large
-      - c5ad.xlarge
-      - c5ad.2xlarge
-      - c5ad.4xlarge
-      
+      - c6g.large
+      - c6g.xlarge
+      - c6g.2xlarge
+      - c6g.4xlarge
+      - c6gd.large
+      - c6gd.xlarge
+      - c6gd.2xlarge
+      - c6gd.4xlarge
+      - m6g.large
+      - m6g.xlarge
+      - m6g.2xlarge
+      - m6g.4xlarge
+      - m6gd.large
+      - m6gd.xlarge
+      - m6gd.2xlarge
+      - m6gd.4xlarge
     ConstraintDescription: Must contain valid instance type
   workerInstanceType:
-    Description: EC2 instance type to provision the LogStream worker instance. If none specified, c5.2xlarge will be used.
+    Description: EC2 instance type to provision the LogStream worker instance. If none specified, c6g.2xlarge will be used.
     Type: String
-    Default: c5.2xlarge
+    Default: c6g.2xlarge
     AllowedValues:
-      - c5.large
-      - c5.xlarge
-      - c5.2xlarge
-      - c5.4xlarge
-      - c5d.large
-      - c5d.xlarge
-      - c5d.2xlarge
-      - c5d.4xlarge
-      - c5a.large
-      - c5a.xlarge
-      - c5a.2xlarge
-      - c5a.4xlarge
-      - c5ad.large
-      - c5ad.xlarge
-      - c5ad.2xlarge
-      - c5ad.4xlarge
-      
+      - c6g.large
+      - c6g.xlarge
+      - c6g.2xlarge
+      - c6g.4xlarge
+      - c6gd.large
+      - c6gd.xlarge
+      - c6gd.2xlarge
+      - c6gd.4xlarge
+      - m6g.large
+      - m6g.xlarge
+      - m6g.2xlarge
+      - m6g.4xlarge
+      - m6gd.large
+      - m6gd.xlarge
+      - m6gd.2xlarge
+      - m6gd.4xlarge
     ConstraintDescription: Must contain valid instance type
   AdditionalPolicies:
     Default: "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore,arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy"
     Description: A comma separated list of Policy ARNs to add to the IAM role used by Logstream instances. Append to defaults, DO NOT REMOVE!
-    Type: CommaDelimitedList 
-
-Metadata:
-  AWS::CloudFormation::Interface:
-    ParameterGroups:
-      - Label:
-          default: leader Instance Configuration
-        Parameters:
-          - leaderInstanceType
-      - Label:
-          default: Worker Instance Configuration
-        Parameters:
-          - workerInstanceType
-          - workerCount
-      - Label:
-          default: Network Configuration
-        Parameters:
-          - vpcId
-          - subnetIds
-          - webAccessCidr
-      - Label:
-          default: Advanced Settings
-        Parameters:
-          - AdditionalPolicies
-    ParameterLabels:
-      leaderInstanceType:
-        default: leader Node EC2 Instance Type
-      workerInstanceType:
-        default: Worker Nodes EC2 Instance Type
-      workerCount:
-        default: Worker Count
-      vpcId:
-        default: VPC ID
-      subnetIds:
-        default: Subnet IDs
-      webAccessCidr:
-        default: Web Access CIDR
-      AdditionalPolicies:
-        default: IAM Policies for node instance profiles
-      AvailabilityZones:
-        default: Availability Zones
-      QSS3BucketRegion:
-        default: Quick Start S3 bucket Region
-      PrivateSubnet1CIDR:
-        default: Private subnet 1 CIDR
-      PrivateSubnet2CIDR:
-        default: Private subnet 2 CIDR
-      PublicSubnet1CIDR:
-        default: Public subnet 1 CIDR
-      PublicSubnet2CIDR:
-        default: Public subnet 2 CIDR
-      VPCTenancy:
-        default: VPC tenancy
-      QSS3BucketName:
-        default: Quick Start S3 bucket name
-      QSS3KeyPrefix:
-        default: Quick Start S3 key prefix
-      VPCCIDR:
-        default: VPC CIDR
+    Type: CommaDelimitedList
 
 Rules:
   SubnetsInVPC:
@@ -266,41 +208,11 @@ Rules:
             - VpcId
           - !RefAll "AWS::EC2::VPC::Id"
         AssertDescription: All subnets must in the VPC
-      
-Mappings:
- RegionMap:
-  ap-northeast-1:
-    HVM64: ami-058bb33212bdfa544
-  ap-northeast-2:
-    HVM64: ami-0e7eabfb7336e95e3
-  ap-south-1:
-    HVM64: ami-026228172afa592ee
-  ap-southeast-1:
-    HVM64: ami-04e3f90ee9e8a6f53
-  ap-southeast-2:
-    HVM64: ami-02cad52ffc33a75c6
-  ca-central-1:
-    HVM64: ami-0574fed17f29ddad6
-  eu-central-1:
-    HVM64: ami-04811c6bed005b66a
-  eu-north-1:
-    HVM64: ami-0c7372d41df744985
-  eu-west-1:
-    HVM64: ami-0e55344ab00db0aa6
-  eu-west-2:
-    HVM64: ami-0de6890f8313fb81c
-  eu-west-3:
-    HVM64: ami-09eeed0d73f91087c
-  sa-east-1:
-    HVM64: ami-012e6dc4c48f6595b
-  us-east-1:
-    HVM64: ami-0800f811f8f4b958b
-  us-east-2:
-    HVM64: ami-00dbe21c9dd5e8e3a
-  us-west-1:
-    HVM64: ami-0193641ec5f0891d4
-  us-west-2:
-    HVM64: ami-0418b449d23da99e5
+
+Conditions:
+  UsingDefaultBucket: !Equals
+    - !Ref QSS3BucketName
+    - 'aws-quickstart'
 
 Resources:
   VPCStack:
@@ -331,25 +243,33 @@ Resources:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
       TemplateURL: !Sub
-        - https://${S3Bucket}.s3.${S3Region}.${AWS::URLSuffix}/${QSS3KeyPrefix}templates/free_x86_64_template.yaml
+        - https://${S3Bucket}.s3.${S3Region}.${AWS::URLSuffix}/${QSS3KeyPrefix}templates/free_arm64.template.yaml
+        - S3Bucket: !If
+            - UsingDefaultBucket
+            - !Sub 'aws-quickstart-${AWS::Region}'
+            - !Ref 'QSS3BucketName'
+          S3Region: !If
+            - UsingDefaultBucket
+            - !Ref 'AWS::Region'
+            - !Ref 'QSS3BucketRegion'
       Parameters:
         leaderInstanceType: !Ref leaderInstanceType
         workerInstanceType: !Ref workerInstanceType
         webAccessCidr: !Ref webAccessCidr
         workerCount: !Ref workerCount
-        vpcId: !GetAtt
-          - VPCStack
-          - Outputs.VPCID
+        vpcId: !GetAtt VPCStack.Outputs.VPCID
         subnetIds: !Join
           - ','
           - - !GetAtt VPCStack.Outputs.PublicSubnet1ID
             - !GetAtt VPCStack.Outputs.PublicSubnet2ID
-        AdditionalPolicies: !Ref AdditionalPolicies
+        AdditionalPolicies: !Join
+          - ','
+          - !Ref AdditionalPolicies
 
 Outputs:
   logstreamWebUrlPublic:
-    Value: !Sub http://${LeaderLoadBalancerExternal.DNSName}:9000/login
+    Value: !GetAtt CriblStack.Outputs.logstreamWebUrlPublic
     Description: Cribl LogStream Web URL
   logstreamWebAccessCreds:
-    Value: "admin / Leader EC2 Instance ID"
+    Value: !GetAtt CriblStack.Outputs.logstreamWebAccessCreds
     Description: Default Web Access Credentials
