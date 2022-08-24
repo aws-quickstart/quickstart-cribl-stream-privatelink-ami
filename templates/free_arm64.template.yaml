@@ -117,37 +117,37 @@ Rules:
 Mappings:
  RegionMap:
   ap-northeast-1:
-    ARM64: ami-0892f2b686cb2332d
+    ARM64: ami-05713725331d7da87
   ap-northeast-2:
-    ARM64: ami-0d83b4810350d52cd
+    ARM64: ami-0d0cbd4bb503a8392
   ap-south-1:
-    ARM64: ami-0e9ae412ad33ba2ac
+    ARM64: ami-08c37554a74085233
   ap-southeast-1:
-    ARM64: ami-0235458dae0632147
+    ARM64: ami-0001ccc0fa2f4bb58
   ap-southeast-2:
-    ARM64: ami-01261f9cb8786022e
+    ARM64: ami-030a28fd0f4425aa0
   ca-central-1:
-    ARM64: ami-0c8c0aa40694108c7
+    ARM64: ami-049e89b91860c0c76
   eu-central-1:
-    ARM64: ami-0ea76873fad4558f0
+    ARM64: ami-0a54bb2bd5e987705
   eu-north-1:
-    ARM64: ami-00d83717badc49284
+    ARM64: ami-024f442825535976f
   eu-west-1:
-    ARM64: ami-0f444e723f8a43c6f
+    ARM64: ami-0fc642da59aaa3054
   eu-west-2:
-    ARM64: ami-04b877cd05e909bd9
+    ARM64: ami-03af1bbaa5159b909
   eu-west-3:
-    ARM64: ami-0b344db49984778b8
+    ARM64: ami-00b4befb784285e18
   sa-east-1:
-    ARM64: ami-0bd5816a48d133138
+    ARM64: ami-06f2bd6f4bc75e1e4
   us-east-1:
-    ARM64: ami-019e8ab0b22ffbe98
+    ARM64: ami-0d674664089a2cc30
   us-east-2:
-    ARM64: ami-012e9eef314ca955b
+    ARM64: ami-0e691c58d8cbfddfd
   us-west-1:
-    ARM64: ami-07cb57dbfc83df79b
+    ARM64: ami-0d277970fb2218635
   us-west-2:
-    ARM64: ami-053f04569ba6166a4
+    ARM64: ami-0be98fa4b8a367d2b
 
 Resources:
   ec2leaderSecurityGroup:

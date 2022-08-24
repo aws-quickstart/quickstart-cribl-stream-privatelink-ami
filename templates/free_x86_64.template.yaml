@@ -119,37 +119,37 @@ Rules:
 Mappings:
  RegionMap:
   ap-northeast-1:
-    HVM64: ami-058bb33212bdfa544
+    HVM64: ami-01f96a48dafa133a0
   ap-northeast-2:
-    HVM64: ami-0e7eabfb7336e95e3
+    HVM64: ami-093d94eeadadfa752
   ap-south-1:
-    HVM64: ami-026228172afa592ee
+    HVM64: ami-01fb369f309b04964
   ap-southeast-1:
-    HVM64: ami-04e3f90ee9e8a6f53
+    HVM64: ami-0f9698333c541fa14
   ap-southeast-2:
-    HVM64: ami-02cad52ffc33a75c6
+    HVM64: ami-03546c3b32d765565
   ca-central-1:
-    HVM64: ami-0574fed17f29ddad6
+    HVM64: ami-0f7018c93e26a01a6
   eu-central-1:
-    HVM64: ami-04811c6bed005b66a
+    HVM64: ami-07406ad5e89a6b6f2
   eu-north-1:
-    HVM64: ami-0c7372d41df744985
+    HVM64: ami-0fddc3a120b42abde
   eu-west-1:
-    HVM64: ami-0e55344ab00db0aa6
+    HVM64: ami-0b08b4da6556eff4b
   eu-west-2:
-    HVM64: ami-0de6890f8313fb81c
+    HVM64: ami-033ff967626475475
   eu-west-3:
-    HVM64: ami-09eeed0d73f91087c
+    HVM64: ami-0071c8c8ecdfefb15
   sa-east-1:
-    HVM64: ami-012e6dc4c48f6595b
+    HVM64: ami-0b0f08c465a75877b
   us-east-1:
-    HVM64: ami-0800f811f8f4b958b
+    HVM64: ami-07c1a630ffed73dc6
   us-east-2:
-    HVM64: ami-00dbe21c9dd5e8e3a
+    HVM64: ami-05c9d3923a591d295
   us-west-1:
-    HVM64: ami-0193641ec5f0891d4
+    HVM64: ami-0f859d60acbc06076
   us-west-2:
-    HVM64: ami-0418b449d23da99e5
+    HVM64: ami-0bffe570320ddb944
 
 Resources:
   ec2leaderSecurityGroup:
