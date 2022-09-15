@@ -6,7 +6,7 @@
 :doc-month: July
 :doc-year: 2022
 :partner-contributors: Kam Amir, Cribl
-// :other-contributors: Akua Mansa, Trek10
+// :other-contributors: Alex Cain, Cribl
 // :aws-contributors: Janine Singh, AWS IoT Partner team
 :aws-ia-contributors: Tony Bulding, AWS Integration & Automation team
 :deployment_time: 15 minutes
