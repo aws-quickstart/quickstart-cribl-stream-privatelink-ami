@@ -63,7 +63,7 @@ Parameters:
     ConstraintDescription: Must contain valid instance type.
   AdditionalPolicies:
     Default: "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore,arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy"
-    Description: Comma-separated list of policy ARNs to add to the IAM role used by Cribl Stream instances. Append to defaults, DO NOT REMOVE!
+    Description: Additional policy ARNs to attach to the IAM role used by the Cribl Stream instances, in a comma-separated list format. Do not remove default policies.
     Type: CommaDelimitedList
 
 Metadata:
@@ -729,3 +729,6 @@ Outputs:
   logstreamWebAccessCreds:
     Value: "admin / Leader EC2 Instance ID"
     Description: Default Web Access Credentials
+  Postdeployment:
+    Description: See the deployment guide for postdeployment steps.
+    Value: https://fwd.aws/9Jq7J?
