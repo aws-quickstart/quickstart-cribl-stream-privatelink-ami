@@ -56,11 +56,11 @@ Metadata:
       workerCount:
         default: Number of Cribl worker nodes
       webAccessCidr:
-        default: Web access CIDR, Cribl stream leader
+        default: Cribl Stream leader web access CIDR
       leaderInstanceType:
-        default: EC2 instance type, Cribl stream leader
+        default: Cribl Stream leader EC2 instance type
       workerInstanceType:
-        default: EC2 instance type, Cribl stream workers
+        default: Cribl Stream workers EC2 instance type
       AdditionalPolicies:
         default: Additional policies
 
@@ -98,7 +98,7 @@ Parameters:
       - default
       - dedicated
     Default: default
-    Description: The allowed tenancy of instances launched into the VPC.
+    Description: The allowed tenancy of EC2 instances launched into the VPC.
     Type: String
   VPCCIDR:
     AllowedPattern: ^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\/(1[6-9]|2[0-8]))$
@@ -141,17 +141,17 @@ Parameters:
       specify the Region.
     Type: String
   workerCount:
-    Description: "REQUIRED: Enter the number of worker nodes desired"
+    Description: (Required) Number of desired Cribl Stream worker nodes.
     Type: String
     Default: '2'
   webAccessCidr:
     Type: String
     AllowedPattern: ^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\/([0-9]|[1-2][0-9]|3[0-2]))$
     ConstraintDescription: CIDR block parameter must be in the form "x.x.x.x/x".
-    Description: CIDR IP range permitted to access the Cribl Stream web console. We recommend you set this value to a trusted IP range.
+    Description: (Required) CIDR IP range permitted to access the Cribl Stream web console. We recommend you set this value to a trusted IP range.
     Default: 10.0.144.0/20
   leaderInstanceType:
-    Description: Select a EC2 instance type for the Cribl Stream leader. Default is c6g.2xlarge.
+    Description: EC2 instance type for the Cribl Stream leader.
     Type: String
     Default: c6g.2xlarge
     AllowedValues:
@@ -171,9 +171,9 @@ Parameters:
       - m6gd.xlarge
       - m6gd.2xlarge
       - m6gd.4xlarge
-    ConstraintDescription: Must contain valid instance type.
+    ConstraintDescription: Must contain a valid instance type.
   workerInstanceType:
-    Description: Select a EC2 instance type for the Cribl Stream workers. Default is c6g.2xlarge.
+    Description: EC2 instance type for Cribl Stream workers.
     Type: String
     Default: c6g.2xlarge
     AllowedValues:
@@ -269,10 +269,10 @@ Resources:
 Outputs:
   logstreamWebUrlPublic:
     Value: !GetAtt CriblStack.Outputs.logstreamWebUrlPublic
-    Description: Cribl LogStream Web URL
+    Description: Cribl Stream URL.
   logstreamWebAccessCreds:
     Value: !GetAtt CriblStack.Outputs.logstreamWebAccessCreds
-    Description: Default Web Access Credentials
+    Description: Default web access credentials.
   Postdeployment:
     Description: See the deployment guide for postdeployment steps.
     Value: https://fwd.aws/9Jq7J?
