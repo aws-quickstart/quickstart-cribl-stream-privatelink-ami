@@ -727,7 +727,7 @@ Resources:
 Outputs:
   logstreamWebUrlPublic:
     Value: !Sub http://${LeaderLoadBalancerExternal.DNSName}:9000/login
-    Description: Cribl Stream URL.
+    Description: Cribl Stream web console URL.
   logstreamWebAccessCreds:
     Value: "admin / Leader EC2 Instance ID"
     Description: Default web access credentials.

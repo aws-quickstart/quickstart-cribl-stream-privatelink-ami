@@ -269,7 +269,7 @@ Resources:
 Outputs:
   logstreamWebUrlPublic:
     Value: !GetAtt CriblStack.Outputs.logstreamWebUrlPublic
-    Description: Cribl Stream URL.
+    Description: Cribl Stream web console URL.
   logstreamWebAccessCreds:
     Value: !GetAtt CriblStack.Outputs.logstreamWebAccessCreds
     Description: Default web access credentials.
