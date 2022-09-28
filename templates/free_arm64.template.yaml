@@ -4,13 +4,13 @@ Description: Cribl LogStream free distributed deployment (arm64)
 
 Parameters:
   workerCount:
-    Description: Number of Cribl worker nodes
+    Description: Number of Cribl worker nodes.
     Type: String
   vpcId:
     Description: Existing VPC ID
     Type: 'AWS::EC2::VPC::Id'
   subnetIds:
-    Description: "REQUIRED: Select 2 subnet Ids in different AZs. These subnets must be in the same VPC as VPC ID above."
+    Description: Select 2 subnet IDs in different Availability Zones. Subnets must be in the  VPC specified in VPC ID.
     Type: 'List<AWS::EC2::Subnet::Id>'
   webAccessCidr:
     Type: String
