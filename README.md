@@ -1,8 +1,8 @@
 
-## quickstart-cribl-cribl-stream-for-privatelink-ami—Quick Start
+## Cribl Stream for AWS PrivateLink AMI—Quick Start
 
-For architectural details, step-by-step instructions, and customization options, see the [deployment guide](https://aws-quickstart.github.io/quickstart-cribl-cribl-stream-for-privatelink-ami/).
+For architectural details, step-by-step instructions, and customization options, see the [deployment guide](https://fwd.aws/9Jq7J?).
 
-To post feedback, submit feature ideas, or report bugs, use the **Issues** section of this GitHub repo. 
+To post feedback, submit feature ideas, or report bugs, use the **Issues** section of this GitHub repo.
 
-To submit code for this Quick Start, see the [AWS Quick Start Contributor's Kit](https://aws-quickstart.github.io/).
+To submit code for this Quick Start, see the [AWS Quick Start Contributor's Guide](https://aws-quickstart.github.io/).
