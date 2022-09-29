@@ -11,18 +11,13 @@ image::../docs/deployment_guide/images/architecture_diagram.png[Architecture]
 
 As shown in <<architecture1>>, this Partner Solution sets up the following:
 
-* A highly available architecture that spans two Availability Zones.*
-* A virtual private cloud (VPC) configured with public and private subnets, according to AWS
-best practices, to provide you with your own virtual network on AWS.*
+* A highly available architecture that spans two Availability Zones in your virtual private cloud (VPC).
+* An Application Load Balancer to route user web traffic to Cribl Stream instances.
+* A PrivateLink VPC endpoint to allow private access to Cribl Stream to other AWS accounts.
+* A Network Load Balancer to route traffic from the PrivateLink VPC endpoint to Cribl Stream worker nodes in the public subnets.
 * In the public subnets:
-** Managed network address translation (NAT) gateways to allow outbound
-internet access for resources in the private subnets.*
-** A Linux bastion host in an Auto Scaling group to allow inbound Secure
-Shell (SSH) access to Amazon Elastic Compute Cloud (Amazon EC2) instances in public and private subnets.*
-* In the private subnets:
-** <item>.
-** <item>.
-// Add bullet points for any additional components that are included in the deployment. Ensure that the additional components are shown in the architecture diagram. End each bullet with a period.
-* <describe any additional components>.
+** A Cribl Stream leader node deployed to an Amazon Elastic Compute Cloud (Amazon EC2) instance in an Auto Scaling group.*
+** Cribl Stream worker nodes deployed to Amazon EC2 instances in an Auto Scaling group.*
+* AWS Identity and Access Management (IAM) for a role and policy for the Cribl Stream instances. After deploying the Quick Start, you can customize it by adding data sources to the IAM policy.
 
-[.small]#* The template that deploys this Partner Solution into an existing VPC skips the components marked by asterisks and prompts you for your existing VPC configuration.#
+[.small]#* By default, to give users a better experience when getting started with Cribl Stream, this Quick Start deploys in a public subnet. If you're deploying this Quick Start in a production environment, consider using a private subnet.#
