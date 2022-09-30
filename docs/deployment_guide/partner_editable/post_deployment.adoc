@@ -2,9 +2,15 @@
 
 == Postdeployment steps
 
-=== Logging into the Cribl
+=== Logging in to the Cribl web console
 
-Log in to Cribl Stream with the credential supplied in the nested **CriblDeploy** "Outputs" tab on your CloudFormation stack.
+. Sign in to the https://us-east-1.console.aws.amazon.com/console/home?region=us-east-1#[AWS Management Console^] and open the CloudFormation console.
+. In the left navigation pane, choose *Stacks*.
+. On the *Stacks* page, choose the Cribl stack.
+. Choose the *Outputs* tab. Note the following values:
+** *logstreamWebUrlPublic* –  Cribl web console URL.
+** *logstreamWebAccessCreds* – Credentials to log in to the Cribl console.
+. Navigate to the Cribl web console URL and use the credentials on the *Outputs* tab to log in.
 
 === Adding other data sources and destinations
 
@@ -20,9 +26,9 @@ You can add data sources, such as Amazon Kinesis, Amazon Simple Queue Service (A
 
 ==== Data destinations
 
-* https://docs.cribl.io/stream/destinations-sqs#sqs-permissions[Amazon SQS] 
+* https://docs.cribl.io/stream/destinations-sqs#sqs-permissions[Amazon SQS]
 
-* https://docs.cribl.io/stream/destinations-s3#amazon-s3-permissions[Amazon S3] 
+* https://docs.cribl.io/stream/destinations-s3#amazon-s3-permissions[Amazon S3]
 
 == Aditional resources
 
