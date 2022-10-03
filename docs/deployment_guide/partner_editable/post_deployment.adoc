@@ -8,9 +8,10 @@
 . In the left navigation pane, choose *Stacks*.
 . On the *Stacks* page, choose the Cribl stack.
 . Choose the *Outputs* tab. Note the following values:
-** *logstreamWebUrlPublic* –  Cribl web console URL.
-** *logstreamWebAccessCreds* – Credentials to log in to the Cribl console.
-. Navigate to the Cribl web console URL and use the credentials on the *Outputs* tab to log in.
+** *Cribl Stream web console URL*
+** *Default web access credentials*
+. Navigate to the Cribl Stream web console URL.
+. Enter the user name `admin` and the AMI ID of the Cribl Stream leader instance as the password.
 
 === Adding other data sources and destinations
 
@@ -18,26 +19,26 @@ You can add data sources, such as Amazon Kinesis, Amazon Simple Queue Service (A
 
 ==== Data sources
 
-* https://docs.cribl.io/stream/sources-kinesis-streams/#auto-authentication[Amazon Kinesis]
+* https://docs.cribl.io/stream/sources-kinesis-streams/#auto-authentication[Amazon Kinesis^]
 
-* https://docs.cribl.io/stream/sources-sqs#sqs-permissions[Amazon SQS]
+* https://docs.cribl.io/stream/sources-sqs#sqs-permissions[Amazon SQS^]
 
-* https://docs.cribl.io/stream/sources-s3#s3-and-sqs-permissions[Amazon S3]
+* https://docs.cribl.io/stream/sources-s3#s3-and-sqs-permissions[Amazon S3^]
 
 ==== Data destinations
 
-* https://docs.cribl.io/stream/destinations-sqs#sqs-permissions[Amazon SQS]
+* https://docs.cribl.io/stream/destinations-sqs#sqs-permissions[Amazon SQS^]
 
-* https://docs.cribl.io/stream/destinations-s3#amazon-s3-permissions[Amazon S3]
+* https://docs.cribl.io/stream/destinations-s3#amazon-s3-permissions[Amazon S3^]
 
 == Aditional resources
 
-* https://cribl.io/community[Cribl Community]
-* https://cribl.io/resources[Cribl Resources]
-* https://docs.cribl.io/docs/deploy-single-instance[Single Instance Deployments]
-* https://docs.cribl.io/docs/deploy-distributed[Distributed Deployments]
-* https://docs.cribl.io/docs/scaling[Sizing and Scaling]
-* https://docs.cribl.io/logstream/usecase-aws-x-account[AWS Cross-Account Data Collection]
-* https://docs.cribl.io/logstream/sources[Sources]
-* https://docs.cribl.io/logstream/destinations[Destinations]
-* https://cribl.io/integrations/[Integrations]
+* https://cribl.io/community[Cribl Community^]
+* https://cribl.io/resources[Cribl Resources^]
+* https://docs.cribl.io/docs/deploy-single-instance[Single Instance Deployments^]
+* https://docs.cribl.io/docs/deploy-distributed[Distributed Deployments^]
+* https://docs.cribl.io/docs/scaling[Sizing and Scaling^]
+* https://docs.cribl.io/logstream/usecase-aws-x-account[AWS Cross-Account Data Collection^]
+* https://docs.cnribl.io/logstream/sources[Sources^]
+* https://docs.cribl.io/logstream/destinations[Destinations^]
+* https://cribl.io/integrations/[Integrations^]
