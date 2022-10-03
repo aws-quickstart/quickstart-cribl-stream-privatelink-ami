@@ -31,7 +31,7 @@ You can add data sources, such as Amazon Kinesis, Amazon Simple Queue Service (A
 
 * https://docs.cribl.io/stream/destinations-s3#amazon-s3-permissions[Amazon S3^]
 
-== Aditional resources
+== Additional resources
 
 * https://cribl.io/community[Cribl Community^]
 * https://cribl.io/resources[Cribl Resources^]
