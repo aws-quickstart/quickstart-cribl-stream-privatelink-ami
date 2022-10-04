@@ -11,7 +11,7 @@
 ** *Cribl Stream web console URL*
 ** *Default web access credentials*
 . Navigate to the Cribl Stream web console URL.
-. Enter the user name `admin` and the AMI ID of the Cribl Stream leader instance as the password.
+. Enter the user name `admin` and the AMI ID of the Cribl Stream leader instance as the password. Refer to *Default web access credentials* on the *Outputs* tab for this password.
 
 === Adding other data sources and destinations
 

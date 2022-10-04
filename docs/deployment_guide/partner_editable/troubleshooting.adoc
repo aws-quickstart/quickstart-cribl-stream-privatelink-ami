@@ -2,8 +2,7 @@
 
 * During deployment, you must select two Availability Zones or the deployment will fail.
 * You can use a git repository to back up your configurations. For more information, refer to https://docs.cribl.io/logstream/gitops/[GitOps on Cribl^].
-
-For troubleshooting common Partner Solution issues visit the http://general-content-file[AWS Partner Solution General Content Guide^] or the https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html[Troubleshooting CloudFormation^] page in the AWS documentation.
+* For troubleshooting common Partner Solution issues visit the http://general-content-file[AWS Partner Solution General Content Guide^] or the https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html[Troubleshooting CloudFormation^] page in the AWS documentation.
 
 == FAQ
 
