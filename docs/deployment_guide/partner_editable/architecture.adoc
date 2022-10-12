@@ -11,11 +11,11 @@ image::../docs/deployment_guide/images/architecture_diagram.png[Architecture]
 
 As shown in <<architecture1>>, this Partner Solution sets up the following:
 
-* A highly available architecture that spans two Availability Zones in your virtual private cloud (VPC).
+* A highly available architecture that spans two Availability Zones in your VPC.
 * An Application Load Balancer to route user web traffic to Cribl Stream instances.
-* A PrivateLink VPC endpoint to allow private access to the Partner Solution VPC to other AWS accounts.
+* A PrivateLink VPC endpoint for private access to the Partner Solution VPC from other AWS accounts.
 * A Network Load Balancer to route traffic from the PrivateLink VPC endpoint to Cribl Stream worker nodes in the public subnets.
-* In the public subnets, a distributed installation of Cribl Stream. This contains a leader node and two worker nodes in Auto Scaling groups. Each node is deployed to an Amazon Elastic Compute Cloud (Amazon EC2) instance.*
-* AWS Identity and Access Management (IAM) for a role and policy for the Cribl Stream instances. After deploying the Quick Start, you can customize it by adding data sources to the IAM policy.
+* In the public subnets, a Cribl Stream leader node and two worker nodes in Auto Scaling groups. Each node is deployed to an Amazon Elastic Compute Cloud (Amazon EC2) instance.*
+* AWS Identity and Access Management (IAM) for a role and policy for the Cribl Stream instances.
 
-[.small]#* By default, to give users a better experience when getting started with Cribl Stream, this Quick Start deploys in a public subnet. If you're deploying this Quick Start in a production environment, consider using a private subnet.#
+[.small]#* By default, to give users a better experience when getting started with Cribl Stream, this Partner Solution deploys in a public subnet. If you're deploying this Partner Solution to a production environment, consider using a private subnet.#
