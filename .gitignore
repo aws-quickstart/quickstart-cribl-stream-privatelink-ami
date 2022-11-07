@@ -1,3 +1,4 @@
 # ignore the taskcat output directory
 taskcat_outputs/
+.taskcat/*
 
