@@ -1,6 +1,5 @@
 AWSTemplateFormatVersion: "2010-09-09"
-Transform: "AWS::Serverless-2016-10-31"
-Description: Cribl LogStream free distributed deployment (arm64)
+Description: Cribl LogStream free distributed deployment (arm64) (qs-1tgmlqpc3)
 
 Metadata:
   AWS::CloudFormation::Interface:
@@ -239,6 +238,7 @@ Resources:
         PublicSubnet2CIDR: !Ref PublicSubnet2CIDR
         VPCCIDR: !Ref VPCCIDR
         VPCTenancy: !Ref VPCTenancy
+
   CriblStack:
     Type: 'AWS::CloudFormation::Stack'
     Properties:
