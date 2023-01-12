@@ -885,13 +885,13 @@ p.footer-text a{color:#d7d8d8}
 </div>
 </div>
 <div class="paragraph text-center">
-<p><strong>October 2022</strong><br>
+<p><strong>January 2023</strong><br>
 <em>Kam Amir, Cribl</em><br>
 <em>Tony Bulding, AWS Integration &amp; Automation team</em><br></p>
 </div>
 <div class="imageblock text-left image-container">
 <div class="content">
-<img src="https://aws-quickstart.s3.amazonaws.com/{partner-solution-project-name}/docs/boilerplate/.images/aws-quickstart-graphic.png" alt="">
+<img src="https://aws-quickstart.s3.amazonaws.com/quickstart-cribl-stream-privatelink-ami/docs/boilerplate/.images/aws-quickstart-graphic.png" alt="">
 </div>
 </div>
 <div class="admonitionblock tip">
@@ -901,7 +901,7 @@ p.footer-text a{color:#d7d8d8}
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Refer to the <a href="https://github.com/{partner-solution-github-org}/{partner-solution-project-name}" target="_blank" rel="noopener">GitHub repository</a> to view source files, report bugs, submit feature ideas, and post feedback about this Partner Solution. To comment on the documentation, refer to <a href="#_feedback">Feedback</a>.
+Refer to the <a href="https://github.com/aws-quickstart/quickstart-cribl-stream-privatelink-ami" target="_blank" rel="noopener">GitHub repository</a> to view source files, report bugs, submit feature ideas, and post feedback about this Partner Solution. To comment on the documentation, refer to <a href="#_feedback">Feedback</a>.
 </td>
 </tr>
 </table>
@@ -923,10 +923,10 @@ Refer to the <a href="https://github.com/{partner-solution-github-org}/{partner-
 <h2 id="_costs_and_licenses">Costs and licenses</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This Partner Solution requires a subscription to <a href="https://aws.amazon.com/marketplace/pp/prodview-3wsytwvqb65gg?sr=0-1&amp;ref_=beagle&amp;applicationId=AWSMPContessa">Cribl Stream Single Instance (Free) x86_64</a> on the AWS Marketplace.</p>
+<p>This Partner Solution requires a subscription to the Amazon Machine Image (AMI) for Cribl Stream Single Instance (Free) x86_64, available on <a href="https://aws.amazon.com/marketplace/pp/prodview-3wsytwvqb65gg?sr=0-1&amp;ref_=beagle&amp;applicationId=AWSMPContessa">AWS Marketplace</a>.</p>
 </div>
 <div class="paragraph">
-<p>There are no additional licenses required to use this Partner Solution. There is no cost to use this Partner Solution, however you will be billed for the resources deployed. For more information see the <a href="http://general-content-file">AWS Partner Solution General Content Guide</a>.</p>
+<p>There are no additional licenses required to use this Partner Solution. There is no cost to use this Partner Solution, however you will be billed for the resources deployed. For more information see the <a href="https://fwd.aws/rA69w?" target="_blank" rel="noopener">AWS Partner Solutions General Information Guide</a>.</p>
 </div>
 </div>
 </div>
@@ -1023,7 +1023,7 @@ AWS Cloud.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Unless you are customizing the Partner Solution templates for your own projects, don&#8217;t change the default settings for the following Amazon Simple Storage Service (Amazon S3) parameters: <strong>Partner Solution S3 bucket name</strong>, <strong>Partner Solution S3 bucket Region</strong>, and <strong>Partner Solution S3 key prefix</strong>. Changing these settings automatically updates code references to point to a new Partner Solution location. For more information, refer to the <a href="https://fwd.aws/NwqYA?" target="_blank" rel="noopener">AWS Partner Solution Contributor&#8217;s Guide</a>.
+Unless you&#8217;re customizing the Partner Solution templates or are instructed otherwise in this guide&#8217;s <strong>Predeployment</strong> section, don&#8217;t change the default settings for the following parameters: <code>QSS3BucketName</code>, <code>QSS3BucketRegion</code>, and <code>QSS3KeyPrefix</code>. Changing the values of these parameters will modify code references that point to the Amazon Simple Storage Service (Amazon S3) bucket name and key prefix. For more information, refer to the <a href="https://fwd.aws/NwqYA?" target="_blank" rel="noopener">AWS Partner Solutions Contributor&#8217;s Guide</a>.
 </td>
 </tr>
 </table>
@@ -1241,21 +1241,21 @@ When you set <strong>Rollback on failure</strong> to <strong>Disabled</strong>, 
 <h2 id="_feedback">Feedback</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To submit feature ideas and report bugs, use the <strong>Issues</strong> section of the <a href="https://github.com/{partner-solution-github-org}/{partner-solution-project-name}" target="_blank" rel="noopener">GitHub repository</a> for this Partner Solution. To submit code, refer to the <a href="https://fwd.aws/NwqYA?" target="_blank" rel="noopener">Partner Solution Contributor&#8217;s Guide</a>. To submit feedback on this deployment guide, use the following GitHub links:</p>
+<p>To submit feature ideas and report bugs, use the <strong>Issues</strong> section of the <a href="https://github.com/aws-quickstart/quickstart-cribl-stream-privatelink-ami" target="_blank" rel="noopener">GitHub repository</a> for this Partner Solution. To submit code, refer to the <a href="https://fwd.aws/NwqYA?" target="_blank" rel="noopener">Partner Solution Contributor&#8217;s Guide</a>. To submit feedback on this deployment guide, use the following GitHub links:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/{partner-solution-github-org}/{partner-solution-project-name}/issues/new?labels=documentation,grammar+or+spelling&amp;title=Deployment+guide+feedback&amp;body=Section+heading:%0ADocumentation+issue+description:%0A" target="_blank" rel="noopener">Grammar or spelling</a></p>
+<p><a href="https://github.com/aws-quickstart/quickstart-cribl-stream-privatelink-ami/issues/new?labels=documentation,grammar+or+spelling&amp;title=Deployment+guide+feedback&amp;body=Section+heading:%0ADocumentation+issue+description:%0A" target="_blank" rel="noopener">Grammar or spelling</a></p>
 </li>
 <li>
-<p><a href="https://github.com/{partner-solution-github-org}/{partner-solution-project-name}/issues/new?labels=documentation,broken+link&amp;title=Deployment+guide+feedback&amp;body=Section+heading:%0ADocumentation+issue+description:%0A" target="_blank" rel="noopener">Broken link</a></p>
+<p><a href="https://github.com/aws-quickstart/quickstart-cribl-stream-privatelink-ami/issues/new?labels=documentation,broken+link&amp;title=Deployment+guide+feedback&amp;body=Section+heading:%0ADocumentation+issue+description:%0A" target="_blank" rel="noopener">Broken link</a></p>
 </li>
 <li>
-<p><a href="https://github.com/{partner-solution-github-org}/{partner-solution-project-name}/issues/new?labels=documentation,inaccurate+content&amp;title=Deployment+guide+feedback&amp;body=Section+heading:%0ADocumentation+issue+description:%0A" target="_blank" rel="noopener">Inaccurate content</a></p>
+<p><a href="https://github.com/aws-quickstart/quickstart-cribl-stream-privatelink-ami/issues/new?labels=documentation,inaccurate+content&amp;title=Deployment+guide+feedback&amp;body=Section+heading:%0ADocumentation+issue+description:%0A" target="_blank" rel="noopener">Inaccurate content</a></p>
 </li>
 <li>
-<p><a href="https://github.com/{partner-solution-github-org}/{partner-solution-project-name}/issues/new?labels=documentation,display+and+design&amp;title=Deployment+guide+feedback&amp;body=Section+heading:%0ADocumentation+issue+description:%0A" target="_blank" rel="noopener">Display or design</a></p>
+<p><a href="https://github.com/aws-quickstart/quickstart-cribl-stream-privatelink-ami/issues/new?labels=documentation,display+and+design&amp;title=Deployment+guide+feedback&amp;body=Section+heading:%0ADocumentation+issue+description:%0A" target="_blank" rel="noopener">Display or design</a></p>
 </li>
 </ul>
 </div>
@@ -1278,7 +1278,7 @@ When you set <strong>Rollback on failure</strong> to <strong>Disabled</strong>, 
         <!-- We can use document attributes: -->
         <!-- Generated with Asciidoctor v2.0.17. -->
         <a href="https://aws.amazon.com/privacy/">Privacy</a> | <a href="https://aws.amazon.com/terms/">Site terms</a> |
-        &copy; 2022, Amazon Web Services, Inc. or its affiliates and Cribl. All rights reserved.
+        &copy; 2023, Amazon Web Services, Inc. or its affiliates and Cribl. All rights reserved.
     </p>
 </footer>
 </body>

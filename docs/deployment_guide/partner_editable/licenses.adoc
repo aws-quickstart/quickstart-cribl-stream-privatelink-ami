@@ -1,5 +1,5 @@
 // Include details about any licenses and how to sign up. Provide links as appropriate.
 
-This Partner Solution requires a subscription to https://aws.amazon.com/marketplace/pp/prodview-3wsytwvqb65gg?sr=0-1&ref_=beagle&applicationId=AWSMPContessa[Cribl Stream Single Instance (Free) x86_64] on the AWS Marketplace.
+This Partner Solution requires a subscription to the Amazon Machine Image (AMI) for Cribl Stream Single Instance (Free) x86_64, available on https://aws.amazon.com/marketplace/pp/prodview-3wsytwvqb65gg?sr=0-1&ref_=beagle&applicationId=AWSMPContessa[AWS Marketplace].
 
-There are no additional licenses required to use this Partner Solution. There is no cost to use this Partner Solution, however you will be billed for the resources deployed. For more information see the http://general-content-file[AWS Partner Solution General Content Guide].
+There are no additional licenses required to use this Partner Solution. There is no cost to use this Partner Solution, however you will be billed for the resources deployed. For more information see the https://fwd.aws/rA69w?[AWS Partner Solutions General Information Guide^].
