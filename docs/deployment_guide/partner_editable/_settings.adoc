@@ -3,7 +3,7 @@
 :partner-product-name: Cribl Stream PrivateLink AMI
 :partner-product-short-name: Cribl PrivateLink AMI
 :partner-company-name: Cribl
-:doc-month: January
+:doc-month: February
 :doc-year: 2023
 :partner-contributors: Kam Amir, Cribl
 // :other-contributors: Alex Cain, Cribl
